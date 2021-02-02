@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\PncUniform.Shopping.UniformInventory.Application\PncUniform.Shopping.UniformInventory.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\PncUniform.Shopping.UniformInventory.Persistence.SQL\PncUniform.Shopping.UniformInventory.Persistence.SQL.csproj" />
+  </ItemGroup>
+
+</Project>

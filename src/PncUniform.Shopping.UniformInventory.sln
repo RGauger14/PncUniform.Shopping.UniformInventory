@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{BBCED307-99A5-4F08-AF0F-E9CF1C01F732}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FF9C1AA9-648B-4296-B1A2-0A417D70CD97}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D0A42587-48BA-4F82-B6EC-E178F5A84A77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FA62770A-8039-4507-B265-8D7EC057CF80}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PncUniform.Shopping.UniformInventory.API", "Presentation\PncUniform.Shopping.UniformInventory.API\PncUniform.Shopping.UniformInventory.API.csproj", "{A6E68251-ABAA-450C-A144-276AB2F10AE2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PncUniform.Shopping.UniformInventory.Application", "Core\PncUniform.Shopping.UniformInventory.Application\PncUniform.Shopping.UniformInventory.Application.csproj", "{487A7BF3-DF2D-44DC-821D-FD371ADAC6F5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PncUniform.Shopping.UniformInventory.Domain", "Core\PncUniform.Shopping.UniformInventory.Domain\PncUniform.Shopping.UniformInventory.Domain.csproj", "{86049927-8208-465E-95A5-0917FAD9D35A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PncUniform.Shopping.UniformInventory.Application.Tests", "Tests\PncUniform.Shopping.UniformInventory.Application.Tests\PncUniform.Shopping.UniformInventory.Application.Tests.csproj", "{147BE47A-3C5A-435E-A435-12C5C40465EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PncUniform.Shopping.UniformInventory.DbUp", "Presentation\PncUniform.Shopping.UniformInventory.DbUp\PncUniform.Shopping.UniformInventory.DbUp.csproj", "{9CF9611C-77BB-477B-BF30-D1B9486C1364}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PncUniform.Shopping.UniformInventory.Persistence.SQL", "Infrastructure\PncUniform.Shopping.UniformInventory.Persistence.SQL\PncUniform.Shopping.UniformInventory.Persistence.SQL.csproj", "{03FBFE8A-840F-4ADA-8307-84B3C83064A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6E68251-ABAA-450C-A144-276AB2F10AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6E68251-ABAA-450C-A144-276AB2F10AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6E68251-ABAA-450C-A144-276AB2F10AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6E68251-ABAA-450C-A144-276AB2F10AE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{487A7BF3-DF2D-44DC-821D-FD371ADAC6F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{487A7BF3-DF2D-44DC-821D-FD371ADAC6F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{487A7BF3-DF2D-44DC-821D-FD371ADAC6F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{487A7BF3-DF2D-44DC-821D-FD371ADAC6F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86049927-8208-465E-95A5-0917FAD9D35A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86049927-8208-465E-95A5-0917FAD9D35A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86049927-8208-465E-95A5-0917FAD9D35A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86049927-8208-465E-95A5-0917FAD9D35A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{147BE47A-3C5A-435E-A435-12C5C40465EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{147BE47A-3C5A-435E-A435-12C5C40465EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{147BE47A-3C5A-435E-A435-12C5C40465EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{147BE47A-3C5A-435E-A435-12C5C40465EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CF9611C-77BB-477B-BF30-D1B9486C1364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CF9611C-77BB-477B-BF30-D1B9486C1364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CF9611C-77BB-477B-BF30-D1B9486C1364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CF9611C-77BB-477B-BF30-D1B9486C1364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03FBFE8A-840F-4ADA-8307-84B3C83064A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03FBFE8A-840F-4ADA-8307-84B3C83064A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03FBFE8A-840F-4ADA-8307-84B3C83064A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03FBFE8A-840F-4ADA-8307-84B3C83064A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A6E68251-ABAA-450C-A144-276AB2F10AE2} = {BBCED307-99A5-4F08-AF0F-E9CF1C01F732}
+		{487A7BF3-DF2D-44DC-821D-FD371ADAC6F5} = {FF9C1AA9-648B-4296-B1A2-0A417D70CD97}
+		{86049927-8208-465E-95A5-0917FAD9D35A} = {FF9C1AA9-648B-4296-B1A2-0A417D70CD97}
+		{147BE47A-3C5A-435E-A435-12C5C40465EC} = {FA62770A-8039-4507-B265-8D7EC057CF80}
+		{9CF9611C-77BB-477B-BF30-D1B9486C1364} = {BBCED307-99A5-4F08-AF0F-E9CF1C01F732}
+		{03FBFE8A-840F-4ADA-8307-84B3C83064A8} = {D0A42587-48BA-4F82-B6EC-E178F5A84A77}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03279F35-EEAF-46BB-8252-7D8C26AC0AB4}
+	EndGlobalSection
+EndGlobal
