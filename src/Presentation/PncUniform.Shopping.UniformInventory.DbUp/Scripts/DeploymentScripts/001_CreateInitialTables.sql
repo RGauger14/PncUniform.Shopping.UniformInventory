@@ -26,7 +26,7 @@ CREATE TABLE [dbo].[OrderItem] (
 	OrderItemID [INT] IDENTITY (1,1) NOT NULL,
 	OrderId [INT] NOT NULL,
 	UniformID [INT] NOT NULL,
-	Quantity [INT] NOT NULL CHECK (Quantity<0),
+	Quantity [INT] NOT NULL CHECK (Quantity>0),
 
 	CONSTRAINT FK_OrderItem_OrderId FOREIGN KEY (OrderId)
 		REFERENCES [dbo].[Orders](OrderId),
@@ -39,8 +39,8 @@ CREATE TABLE [dbo].[Uniforms] (
 	UniformId [INT] IDENTITY (1,1) NOT NULL,
 	Description [NVARCHAR] (225) NOT NULL,
 	Size [NVARCHAR] (15) NOT NULL,
-	Price [DECIMAL] (2) NOT NULL CHECK (Price<0),
-	StockLevel [INT] NOT NULL CHECK (StockLevel<0),
+	Price [DECIMAL] (2) NOT NULL CHECK (Price>0),
+	StockLevel [INT] NOT NULL CHECK (StockLevel>0),
 	Campus [VARCHAR] (50) NOT NULL,
 	Barcode [VARCHAR] (20) NOT NULL,
 	VendorBarcode [VARCHAR] (20) NOT NULL,
