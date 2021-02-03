@@ -2,7 +2,7 @@
 	CustomerId [INT] IDENTITY(1,1) NOT NULL,
 	CustomerName [NVARCHAR](100) NOT NULL,
 	CustomerEmail [NVARCHAR](150) NOT NULL,
-	CustomerMobile [INT] NOT NUll,
+	CustomerMobile [VARCHAR](15) NOT NUll,
 
 	CONSTRAINT PK_Customers_CustomerId PRIMARY KEY (CustomerId)
 );
