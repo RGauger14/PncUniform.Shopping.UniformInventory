@@ -10,11 +10,10 @@
 CREATE TABLE [dbo].[Orders] (
 	OrderID [INT] IDENTITY (1,1) NOT NULL,
 	CustomerID [INT] NOT NULL,
-	OrderDate [DATE] NOT NULL, 
-	StudentName [CHAR] (50) NOT NULL,
-	ClassName [CHAR] (50) NOT NULL,
-	DeliveryOption [CHAR] (50) NOT NULL,
-	PaymentType [CHAR] (50) NOT NULL,
+	OrderDate [DATETIME2] NOT NULL, 
+	StudentName [CHAR] (100) NOT NULL,
+	ClassName [CHAR] (100) NOT NULL,
+	DeliveryOption [CHAR] (100) NOT NULL,
 	Paid [BIT] NOT NULL,
 
 	CONSTRAINT PK_Orders_OrderId PRIMARY KEY (OrderId),
