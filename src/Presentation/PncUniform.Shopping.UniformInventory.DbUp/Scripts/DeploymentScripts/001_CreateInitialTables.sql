@@ -26,7 +26,7 @@ CREATE TABLE [dbo].[OrderItem] (
 	OrderItemID [INT] IDENTITY (1,1) NOT NULL,
 	OrderId [INT] NOT NULL,
 	UniformID [INT] NOT NULL,
-	Quantity [INT] NOT NULL,
+	Quantity [INT] NOT NULL CHECK (Quantity<0),
 
 	CONSTRAINT FK_OrderItem_OrderId FOREIGN KEY (OrderId)
 		REFERENCES [dbo].[Orders](OrderId),
