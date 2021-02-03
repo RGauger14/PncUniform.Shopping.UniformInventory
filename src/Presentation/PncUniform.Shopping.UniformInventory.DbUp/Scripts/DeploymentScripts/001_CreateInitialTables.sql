@@ -39,11 +39,11 @@ CREATE TABLE [dbo].[Uniforms] (
 	UniformId [INT] IDENTITY (1,1) NOT NULL,
 	Description [NVARCHAR] (225) NOT NULL,
 	Size [NVARCHAR] (15) NOT NULL,
-	Price [DECIMAL] (2) NOT NULL,
+	Price [DECIMAL] (2) NOT NULL CHECK (Price<0),
 	StockLevel [INT] NOT NULL,
 	Campus [VARCHAR] (50) NOT NULL,
 	Barcode [VARCHAR] (20) NOT NULL,
 	VendorBarcode [VARCHAR] (20) NOT NULL,
-
+	
 	CONSTRAINT FK_Uniforms_UniformId PRIMARY KEY (UniformId)
 );
