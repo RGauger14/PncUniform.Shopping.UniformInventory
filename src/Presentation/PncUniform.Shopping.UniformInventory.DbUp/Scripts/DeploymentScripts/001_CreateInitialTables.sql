@@ -43,7 +43,7 @@ CREATE TABLE [dbo].[Uniforms] (
 	StockLevel [INT] NOT NULL,
 	Campus [VARCHAR] (50) NOT NULL,
 	Barcode [VARCHAR] (20) NOT NULL,
-	VendorBarcode [VARCHAR] (20) Not Null,
+	VendorBarcode [VARCHAR] (20) NOT NULL,
 
 	CONSTRAINT FK_Uniforms_UniformId PRIMARY KEY (UniformId)
 );
