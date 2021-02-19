@@ -6,7 +6,7 @@ using System.Text;
 
 namespace PncUniform.Shopping.UniformInventory.Domain.Entities
 {
-    public class Orders
+    public class Order
     {
         [Key]
         [Required]
@@ -15,6 +15,8 @@ namespace PncUniform.Shopping.UniformInventory.Domain.Entities
         [Required]
         [ForeignKey("CustomerId")]
         public int CustomerId { get; set; }
+
+        public Customer Customer { get; set; }
 
         [Required]
         [DataType(DataType.DateTime)]

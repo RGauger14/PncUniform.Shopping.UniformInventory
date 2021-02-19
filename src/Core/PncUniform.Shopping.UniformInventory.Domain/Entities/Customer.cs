@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PncUniform.Shopping.UniformInventory.Domain.Entities
 {
-    public class Customers
+    public class Customer
     {
         [Key]
         public int CustomerId { get; set; }
@@ -15,7 +15,7 @@ namespace PncUniform.Shopping.UniformInventory.Domain.Entities
         public string CustomerName { get; set; }
 
         [Required]
-        [StringLength(150)]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Required]

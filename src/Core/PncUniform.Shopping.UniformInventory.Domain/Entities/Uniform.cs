@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PncUniform.Shopping.UniformInventory.Domain.Entities
 {
-    public class Uniforms
+    public class Uniform
     {
         [Key]
         [Required]
@@ -15,7 +15,7 @@ namespace PncUniform.Shopping.UniformInventory.Domain.Entities
         public int Size { get; set; }
 
         [Required]
-        public int Price { get; set; }
+        public decimal Price { get; set; }
 
         [Required]
         public int Stock { get; set; }

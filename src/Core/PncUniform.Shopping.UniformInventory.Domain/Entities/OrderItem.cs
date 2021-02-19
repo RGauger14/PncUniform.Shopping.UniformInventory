@@ -16,10 +16,14 @@ namespace PncUniform.Shopping.UniformInventory.Domain.Entities
         [ForeignKey("OrderId")]
         public int OrderId { get; set; }
 
+        public Order Order { get; set; }
+
 
         [Required]
         [ForeignKey("UniformId")]
         public int UniformId { get; set; }
+
+        public Uniform Uniform { get; set; }
 
         [Required]
         public int Quantity { get; set; }
