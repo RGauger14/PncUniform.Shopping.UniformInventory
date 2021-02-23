@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
-namespace PncUniform.Shopping.UniformInventory.Domain.Entities
+namespace PncUniform.Shopping.UniformInventory.Application.Domain.Entities
 {
     public class Order
     {

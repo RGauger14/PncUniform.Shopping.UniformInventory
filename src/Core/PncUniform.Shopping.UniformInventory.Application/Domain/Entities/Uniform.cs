@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace PncUniform.Shopping.UniformInventory.Domain.Entities
+namespace PncUniform.Shopping.UniformInventory.Application.Domain.Entities
 {
     public class Uniform
     {
