@@ -1,10 +1,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using PncUniform.Shopping.UniformInventory.Application;
+using PncUniform.Shopping.UniformInventory.Application.Db;
+using FluentValidation.AspNetCore;
+using System.Reflection;
+using PncUniform.Shopping.UniformInventory.Application.Customers.Queries;
 
 namespace PncUniform.Shopping.UniformInventory.API
 {
@@ -20,8 +25,10 @@ namespace PncUniform.Shopping.UniformInventory.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<UniformManagementContext>(options => options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=PncUniform;Trusted_Connection=True;"));
+            services.AddControllers()
+                    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<FindCustomerQueryValidator>());
 
-            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PncUniform.Shopping.UniformInventory.API", Version = "v1" });
