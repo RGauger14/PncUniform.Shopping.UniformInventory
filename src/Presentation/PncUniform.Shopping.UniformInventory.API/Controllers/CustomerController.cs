@@ -17,13 +17,6 @@ namespace PncUniform.Shopping.UniformInventory.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetCustomerAsync()
-        {
-            await Task.CompletedTask.ConfigureAwait(false);
-            return Ok();
-        }
-
         [HttpPost("create")]
         public async Task<IActionResult> CreateCustomerAsync([FromBody] CreateCustomerCommand createCustomerCommand)
         {
@@ -38,5 +31,11 @@ namespace PncUniform.Shopping.UniformInventory.API.Controllers
             return Ok(customers);
         }
 
+        [HttpDelete("delete")]
+        public async Task<IActionResult> DeleteCustomerAsync([FromBody] DeleteCustomerCommand deleteCustomerCommand)
+        {
+            var customers = await _mediator.Send(deleteCustomerCommand);
+            return Ok();
+        }
     }
 }
