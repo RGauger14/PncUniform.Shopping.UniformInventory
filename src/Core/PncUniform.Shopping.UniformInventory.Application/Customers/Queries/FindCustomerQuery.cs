@@ -41,9 +41,7 @@ namespace PncUniform.Shopping.UniformInventory.Application.Customers.Queries
         {
             _logger.LogDebug("Finding customer with name {name}", request.Name);
             
-            var customers = _dbContext.Customers.Where(customer => customer.Name.Contains
-            (request.Name)).AsEnumerable();
-
+            var customers = _dbContext.Customers.Where(customer => customer.Name.Contains(request.Name)).AsEnumerable();
             return Task.FromResult(customers);
         }
     }

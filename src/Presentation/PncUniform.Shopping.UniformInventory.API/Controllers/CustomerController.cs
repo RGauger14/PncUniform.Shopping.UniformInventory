@@ -30,12 +30,5 @@ namespace PncUniform.Shopping.UniformInventory.API.Controllers
             var customers = await _mediator.Send(findCustomerQuery);
             return Ok(customers);
         }
-
-        [HttpDelete("delete")]
-        public async Task<IActionResult> DeleteCustomerAsync([FromBody] DeleteCustomerCommand deleteCustomerCommand)
-        {
-            var customers = await _mediator.Send(deleteCustomerCommand);
-            return Ok();
-        }
     }
 }
