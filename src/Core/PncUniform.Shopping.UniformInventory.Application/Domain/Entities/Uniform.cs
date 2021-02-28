@@ -9,13 +9,16 @@ namespace PncUniform.Shopping.UniformInventory.Application.Domain.Entities
         public int UniformId { get; set; }
 
         [Required]
-        public int Size { get; set; }
+        public string Description { get; set; }
+
+        [Required]
+        public string Size { get; set; }
 
         [Required]
         public decimal Price { get; set; }
 
         [Required]
-        public int Stock { get; set; }
+        public int StockLevel { get; set; }
 
         [Required]
         [StringLength(40)]

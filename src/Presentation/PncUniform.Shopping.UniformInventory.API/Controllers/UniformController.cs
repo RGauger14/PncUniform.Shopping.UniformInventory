@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using PncUniform.Shopping.UniformInventory.Application.Uniforms.Commands;
 
 namespace PncUniform.Shopping.UniformInventory.API.Controllers
 {
@@ -15,6 +16,13 @@ namespace PncUniform.Shopping.UniformInventory.API.Controllers
             _mediator = mediator;
         }
 
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateUniformAsync([FromBody] CreateUniformCommand createUniformCommand)
+        {
+            await _mediator.Send(createUniformCommand);
+            return Ok();
+            
+        }
         [HttpGet]
         public async Task<IActionResult> GetUniformAsync()
         {
