@@ -25,7 +25,12 @@ namespace PncUniform.Shopping.UniformInventory.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<UniformManagementContext>(options => options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=PncUniform;Trusted_Connection=True;"));
+            ApplicationOptions appOptions = new ApplicationOptions();
+            var appOptionsSection = Configuration.GetSection("ApplicationOptions");
+            appOptionsSection.Bind(appOptions);
+            services.Configure<ApplicationOptions>(appOptionsSection);
+
+            services.AddDbContext<UniformManagementContext>(options => options.UseSqlServer(appOptions.DbConnectionString));
             services.AddControllers()
                     .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<FindCustomerQueryValidator>());
 
