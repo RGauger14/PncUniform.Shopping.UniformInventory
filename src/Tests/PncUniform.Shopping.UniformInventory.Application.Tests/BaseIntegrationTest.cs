@@ -18,8 +18,7 @@ namespace PncUniform.Shopping.UniformInventory.Application.Tests
 
         protected void ConfigureTestHost()
         {
-            var webHostArgs = Array.Empty<string>();
-            var webHostBuilder = (IWebHostBuilder)Program.CreateHostBuilder(webHostArgs);
+            var webHostBuilder = new WebHostBuilder().UseStartup<Startup>();
             _testServer = new TestServer(webHostBuilder);
         }
 
