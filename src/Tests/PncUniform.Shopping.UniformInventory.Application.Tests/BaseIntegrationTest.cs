@@ -1,15 +1,23 @@
 ﻿using System;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using PncUniform.Shopping.UniformInventory.API;
+using Respawn;
 
 namespace PncUniform.Shopping.UniformInventory.Application.Tests
 {
     public abstract class BaseIntegrationTest : IDisposable
     {
         protected TestServer _testServer;
+        private ApplicationOptions _appOptions;
         private bool _disposedValue;
+        private Checkpoint _checkpoint;
 
         public BaseIntegrationTest()
         {
@@ -18,22 +26,42 @@ namespace PncUniform.Shopping.UniformInventory.Application.Tests
 
         protected void ConfigureTestHost()
         {
-            var webHostBuilder = new WebHostBuilder().UseStartup<Startup>();
+            
+            var webHostBuilder = new WebHostBuilder()
+                .ConfigureAppConfiguration(config =>
+                {
+                    config.AddJsonFile($"{AppDomain.CurrentDomain.BaseDirectory}/appsettings.json");
+                    config.AddUserSecrets(Assembly.GetExecutingAssembly(), optional: true);
+                })
+                .UseStartup<Startup>();
+
             _testServer = new TestServer(webHostBuilder);
+            _appOptions = _testServer.Services.GetRequiredService<IOptions<ApplicationOptions>>().Value;
         }
 
         protected virtual Task SetupTestAsync()
         {
             ConfigureTestHost();
+            CreateDatabaseCheckpoint();
 
             return Task.CompletedTask;
         }
 
-        protected virtual Task TeardownTestAsync()
+        protected async virtual Task TeardownTestAsync()
         {
+            await RestoreDatabaseCheckpointAsync();
             _testServer.Dispose();
+        }
 
-            return Task.CompletedTask;
+        private void CreateDatabaseCheckpoint()
+        {
+            _checkpoint = new Checkpoint();
+        }
+
+
+        private Task RestoreDatabaseCheckpointAsync()
+        {
+            return _checkpoint.Reset(_appOptions.DbConnectionString);
         }
 
         protected virtual void Dispose(bool disposing)
