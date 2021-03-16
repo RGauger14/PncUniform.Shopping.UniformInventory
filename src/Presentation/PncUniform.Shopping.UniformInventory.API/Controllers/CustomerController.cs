@@ -30,5 +30,13 @@ namespace PncUniform.Shopping.UniformInventory.API.Controllers
             var customers = await _mediator.Send(findCustomerQuery);
             return Ok(customers);
         }
+
+        [HttpPost("update")]
+        public async Task<IActionResult> UpdateCustomerAsync([FromBody] UpdateCustomerCommand updateCustomerCommand)
+        {
+            await _mediator.Send(updateCustomerCommand);
+            return Ok();
+        }
+
     }
 }
