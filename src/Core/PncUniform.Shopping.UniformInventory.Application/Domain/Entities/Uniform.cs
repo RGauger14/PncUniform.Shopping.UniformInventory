@@ -28,5 +28,8 @@ namespace PncUniform.Shopping.UniformInventory.Application.Domain.Entities
         [Required]
         [StringLength(13)]
         public string VendorBarcode { get; set; }
+
+        [Required]
+        public string Description { get; set; }
     }
 }
