@@ -38,5 +38,12 @@ namespace PncUniform.Shopping.UniformInventory.API.Controllers
             return Ok();
         }
 
+        [HttpGet("findAll")]
+        public async Task<IActionResult> FindAllCustomersQueryAsync([FromQuery] FindAllCustomersQuery findAllCustomersQuery)
+        {
+             var allCustomers = await _mediator.Send(findAllCustomersQuery);
+            return Ok(allCustomers);
+        }
+
     }
 }
