@@ -21,7 +21,7 @@ namespace PncUniform.Shopping.UniformInventory.Application.Customers.Queries
     {
         public FindCustomerQueryValidator()
         {
-            RuleFor(q => q.Name).NotEmpty().MinimumLength(2).MaximumLength(100);
+            RuleFor(q => q.Name).NotEmpty().MinimumLength(1).MaximumLength(100);
         }
     }
 
