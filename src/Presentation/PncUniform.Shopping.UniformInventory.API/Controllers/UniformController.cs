@@ -45,5 +45,12 @@ namespace PncUniform.Shopping.UniformInventory.API.Controllers
             return Ok(allUnifroms);
         }
 
+        [HttpPost("Update")]
+        public async Task<IActionResult> UpdateUniformAsync([FromBody] UpdateUniformCommand updateUniformCommand)
+        {
+            await _mediator.Send(updateUniformCommand);
+            return Ok();
+        }
+
     }
 }
