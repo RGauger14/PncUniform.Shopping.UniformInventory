@@ -1,6 +1,8 @@
 ﻿using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using PncUniform.Shopping.UniformInventory.Application.Uniforms.Commands;
+using PncUniform.Shopping.UniformInventory.Application.Uniforms.Queries;
 
 namespace PncUniform.Shopping.UniformInventory.API.Controllers
 {
@@ -21,5 +23,34 @@ namespace PncUniform.Shopping.UniformInventory.API.Controllers
             await Task.CompletedTask.ConfigureAwait(false);
             return Ok();
         }
+
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateUniformAsync([FromBody] CreateUniformCommand createUniformCommand)
+        {
+            await _mediator.Send(createUniformCommand);
+            return Ok();
+        }
+
+        [HttpGet("search")]
+        public async Task<IActionResult> FindUnifromQueryAsync([FromQuery] FindUnifromQuery findUniformQuery)
+        {
+            var uniforms = await _mediator.Send(findUniformQuery);
+            return Ok(uniforms);
+        }
+
+        [HttpGet("findAll")]
+        public async Task<IActionResult> FindAllUnifromsQueryAsync([FromQuery] FindAllUniformsQuery findallUniformsQuery)
+        {
+            var allUnifroms = await _mediator.Send(findallUniformsQuery);
+            return Ok(allUnifroms);
+        }
+
+        [HttpPost("Update")]
+        public async Task<IActionResult> UpdateUniformAsync([FromBody] UpdateUniformCommand updateUniformCommand)
+        {
+            await _mediator.Send(updateUniformCommand);
+            return Ok();
+        }
+
     }
 }
