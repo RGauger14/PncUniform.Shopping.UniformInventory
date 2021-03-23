@@ -27,8 +27,8 @@ namespace PncUniform.Shopping.UniformInventory.API.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> CreateUniformAsync([FromBody] CreateUniformCommand createUniformCommand)
         {
-            await _mediator.Send(createUniformCommand);
-            return Ok();
+            var uniform = await _mediator.Send(createUniformCommand);
+            return Ok(uniform);
         }
 
         [HttpGet("search")]
