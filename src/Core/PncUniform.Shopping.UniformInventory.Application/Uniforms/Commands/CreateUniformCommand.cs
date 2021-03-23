@@ -8,10 +8,11 @@ using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using PncUniform.Shopping.UniformInventory.Application.Db;
+using PncUniform.Shopping.UniformInventory.Application.Domain.Entities;
 
 namespace PncUniform.Shopping.UniformInventory.Application.Uniforms.Commands
 {
-    public class CreateUniformCommand : IRequest
+    public class CreateUniformCommand : IRequest<Uniform>
     {
         public string Description { get; set; }
 
@@ -41,7 +42,7 @@ namespace PncUniform.Shopping.UniformInventory.Application.Uniforms.Commands
 
         }
     }
-    public class CreateUniformComandHandler : AsyncRequestHandler<CreateUniformCommand>
+    public class CreateUniformComandHandler : IRequestHandler<CreateUniformCommand, Uniform>
     {
         private readonly UniformManagementContext _dbContext;
         private readonly ILogger<CreateUniformComandHandler> _logger;
@@ -54,10 +55,10 @@ namespace PncUniform.Shopping.UniformInventory.Application.Uniforms.Commands
             _logger = logger;
         }
 
-        protected override async Task Handle(CreateUniformCommand request, CancellationToken cancellationToken)
+        public async Task<Uniform> Handle(CreateUniformCommand request, CancellationToken cancellationToken)
         {
             _logger.LogDebug("Creating Uniform");
-            _dbContext.Uniforms.Add(new Domain.Entities.Uniform
+            var uniform = new Uniform
             {
                 Description = request.Description,
                 Size = request.Size,
@@ -66,10 +67,14 @@ namespace PncUniform.Shopping.UniformInventory.Application.Uniforms.Commands
                 Campus = request.Campus,
                 Barcode = request.Barcode,
                 VendorBarcode = request.VendorBarcode
-            });
+            };
 
+            _dbContext.Uniforms.Add(uniform);
             await _dbContext.SaveChangesAsync();
+
             _logger.LogDebug("Created uniform");
+
+            return uniform;
         }
     }
 }
