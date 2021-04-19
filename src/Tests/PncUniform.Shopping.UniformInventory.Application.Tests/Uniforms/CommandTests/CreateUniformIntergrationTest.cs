@@ -22,13 +22,13 @@ namespace PncUniform.Shopping.UniformInventory.Application.Tests.Uniforms
             var client = _testServer.CreateClient();
             var createUniform = new CreateUniformCommand
             {
-                 Description = "Bucket Hat",
-                 Size = "Medium",
-                 Price = 20,
-                 StockLevel = 5,
-                 Campus = "Both",
-                 Barcode = "1234567890111",
-                 VendorBarcode = "1234567890111"
+                Description = "Bucket Hat",
+                Size = "Medium",
+                Price = 20,
+                StockLevel = 5,
+                Campus = "Both",
+                Barcode = "1234567890111",
+                VendorBarcode = "1234567890111"
             };
 
             var requestContent = new StringContent(JsonConvert.SerializeObject(createUniform), Encoding.UTF8, MediaTypeNames.Application.Json);
@@ -38,6 +38,8 @@ namespace PncUniform.Shopping.UniformInventory.Application.Tests.Uniforms
 
             // Assert
             response.StatusCode.ShouldBe(HttpStatusCode.OK);
+
+            // TODO - Assert that each property of the uniform that came back from the create is as expected
         }
     }
 }

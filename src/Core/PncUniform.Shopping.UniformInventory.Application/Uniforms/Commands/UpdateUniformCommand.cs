@@ -17,8 +17,8 @@ namespace PncUniform.Shopping.UniformInventory.Application.Uniforms.Commands
 
         public string Description { get; set; }
 
-        public string Size { get; set; }
-
+        public string Size { get; set; }  
+                                          
         public decimal Price { get; set; }
 
         public int StockLevel { get; set; }
