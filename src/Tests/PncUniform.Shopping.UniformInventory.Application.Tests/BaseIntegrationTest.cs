@@ -9,12 +9,16 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using PncUniform.Shopping.UniformInventory.API;
 using Respawn;
+using AutoFixture;
+using Xunit;
 
 namespace PncUniform.Shopping.UniformInventory.Application.Tests
 {
+    [Collection("Integration")]
     public abstract class BaseIntegrationTest : IDisposable
     {
         protected TestServer _testServer;
+        protected Fixture _fixture;
         private ApplicationOptions _appOptions;
         private bool _disposedValue;
         private Checkpoint _checkpoint;
@@ -36,6 +40,7 @@ namespace PncUniform.Shopping.UniformInventory.Application.Tests
                 .UseStartup<Startup>();
 
             _testServer = new TestServer(webHostBuilder);
+            _fixture = new Fixture();
             _appOptions = _testServer.Services.GetRequiredService<IOptions<ApplicationOptions>>().Value;
         }
 
