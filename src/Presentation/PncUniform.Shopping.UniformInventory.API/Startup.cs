@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -6,10 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using PncUniform.Shopping.UniformInventory.Application;
-using PncUniform.Shopping.UniformInventory.Application.Db;
-using FluentValidation.AspNetCore;
-using System.Reflection;
 using PncUniform.Shopping.UniformInventory.Application.Customers.Queries;
+using PncUniform.Shopping.UniformInventory.Application.Db;
 
 namespace PncUniform.Shopping.UniformInventory.API
 {

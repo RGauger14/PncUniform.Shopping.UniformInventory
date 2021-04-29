@@ -17,7 +17,6 @@ namespace PncUniform.Shopping.UniformInventory.Application.Customers.Commands
         public string MobileNumber { get; set; }
     }
 
-
     public class CreateCustomerCommandValidator : AbstractValidator<CreateCustomerCommand>
     {
         public CreateCustomerCommandValidator(UniformManagementContext dbContext)

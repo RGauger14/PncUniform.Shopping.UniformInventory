@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Reflection;
 using MediatR;
-using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace PncUniform.Shopping.UniformInventory.Application
 {

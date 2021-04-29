@@ -37,6 +37,5 @@ namespace PncUniform.Shopping.UniformInventory.API.Controllers
             var customers = await _mediator.Send(findCustomerQuery);
             return Ok(customers);
         }
-
     }
 }

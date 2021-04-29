@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
 using MediatR;
@@ -39,9 +35,9 @@ namespace PncUniform.Shopping.UniformInventory.Application.Uniforms.Commands
             RuleFor(u => u.Campus).NotEmpty().NotNull();
             RuleFor(u => u.Barcode).MaximumLength(13).MinimumLength(13);
             RuleFor(u => u.VendorBarcode).MaximumLength(13).MinimumLength(13);
-
         }
     }
+
     public class CreateUniformComandHandler : IRequestHandler<CreateUniformCommand, Uniform>
     {
         private readonly UniformManagementContext _dbContext;

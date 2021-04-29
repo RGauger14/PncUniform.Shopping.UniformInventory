@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
@@ -37,8 +35,8 @@ namespace PncUniform.Shopping.UniformInventory.Application.Uniforms.Queries
             _logger = logger;
             _dbContext = dbContext;
         }
-    
-    public Task<IEnumerable<Uniform>> Handle(FindUnifromQuery request, CancellationToken cancellationToken)
+
+        public Task<IEnumerable<Uniform>> Handle(FindUnifromQuery request, CancellationToken cancellationToken)
         {
             _logger.LogDebug("Finding unifrom with description {description}", request.Description);
 

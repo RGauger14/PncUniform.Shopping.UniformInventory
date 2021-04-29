@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
@@ -14,6 +12,7 @@ namespace PncUniform.Shopping.UniformInventory.Application.Uniforms.Queries
     public class FindAllUniformsQuery : IRequest<IEnumerable<Uniform>>
     {
     }
+
     public class FindAllUnifromsQueryHandler : IRequestHandler<FindAllUniformsQuery, IEnumerable<Uniform>>
     {
         private readonly ILogger<FindAllUnifromsQueryHandler> _logger;

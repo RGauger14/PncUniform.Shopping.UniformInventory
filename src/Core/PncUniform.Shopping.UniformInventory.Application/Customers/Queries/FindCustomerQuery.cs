@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using FluentValidation;
 using MediatR;
-using System.Linq;
 using Microsoft.Extensions.Logging;
 using PncUniform.Shopping.UniformInventory.Application.Db;
 using PncUniform.Shopping.UniformInventory.Application.Domain.Entities;
-using FluentValidation;
 
 namespace PncUniform.Shopping.UniformInventory.Application.Customers.Queries
 {
@@ -37,10 +35,11 @@ namespace PncUniform.Shopping.UniformInventory.Application.Customers.Queries
             _logger = logger;
             _dbContext = dbContext;
         }
+
         public Task<IEnumerable<Customer>> Handle(FindCustomerQuery request, CancellationToken cancellationToken)
         {
             _logger.LogDebug("Finding customer with name {name}", request.Name);
-            
+
             var customers = _dbContext.Customers.Where(customer => customer.Name.Contains(request.Name)).AsEnumerable();
             return Task.FromResult(customers);
         }

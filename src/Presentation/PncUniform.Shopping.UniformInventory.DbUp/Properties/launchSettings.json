@@ -1,8 +1,8 @@
 {
-  "profiles": {
-    "PncUniform.Shopping.UniformInventory.DbUp": {
-      "commandName": "Project",
-      "commandLineArgs": "-c \"Server=localhost\\SQLEXPRESS;Database=Pnc;Trusted_Connection=True;"
+    "profiles": {
+        "PncUniform.Shopping.UniformInventory.DbUp": {
+            "commandName": "Project",
+            "commandLineArgs": "-c \"Server=localhost\\SQLEXPRESS;Database=Pnc;Trusted_Connection=True;"
+        }
     }
-  }
 }

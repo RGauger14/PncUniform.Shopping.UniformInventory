@@ -51,6 +51,5 @@ namespace PncUniform.Shopping.UniformInventory.API.Controllers
             await _mediator.Send(updateUniformCommand);
             return Ok();
         }
-
     }
 }

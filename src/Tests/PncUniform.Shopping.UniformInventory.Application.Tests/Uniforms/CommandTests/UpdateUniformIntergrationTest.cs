@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
 using System.Text;
@@ -14,7 +11,6 @@ using Xunit;
 
 namespace PncUniform.Shopping.UniformInventory.Application.Tests.Uniforms.CommandTests
 {
-
     public class UpdateUniformIntergrationTest : BaseIntegrationTest
     {
         //1. Seed uniform and return it
@@ -49,7 +45,6 @@ namespace PncUniform.Shopping.UniformInventory.Application.Tests.Uniforms.Comman
             // I can't validate that the update happened without first gettingg the data back again
             // deserialise the uniform back from the Update request var actualUniform = JsonConvert<Uniform> (response.content blah)
             // validate each property on the uniform is as expected
-            
 
             // actualUniform.Description.ShouldBe(expectedUniform.Description);
         }
