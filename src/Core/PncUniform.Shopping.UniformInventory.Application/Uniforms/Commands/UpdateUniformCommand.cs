@@ -5,10 +5,11 @@ using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using PncUniform.Shopping.UniformInventory.Application.Db;
+using PncUniform.Shopping.UniformInventory.Application.Domain.Entities;
 
 namespace PncUniform.Shopping.UniformInventory.Application.Uniforms.Commands
 {
-    public class UpdateUniformCommand : IRequest
+    public class UpdateUniformCommand : IRequest<Uniform>
     {
         public int UniformId { get; set; }
 
@@ -27,35 +28,36 @@ namespace PncUniform.Shopping.UniformInventory.Application.Uniforms.Commands
         public string VendorBarcode { get; set; }
     }
 
-    public class UpdateUniformCommandValidator : AbstractValidator<CreateUniformCommand>
+    public class UpdateUniformCommandValidator : AbstractValidator<UpdateUniformCommand>
     {
         public UpdateUniformCommandValidator(UniformManagementContext dbContext)
         {
             RuleFor(u => u.Size).NotEmpty().MaximumLength(15).NotNull();
-            RuleFor(u => u.Price).NotEmpty().NotNull();
-            RuleFor(u => u.StockLevel).NotEmpty().NotNull();
+            RuleFor(u => u.Price).GreaterThan(0);
+            RuleFor(u => u.StockLevel).GreaterThanOrEqualTo(0);
             RuleFor(u => u.Campus).NotEmpty().NotNull();
             RuleFor(u => u.Barcode).MaximumLength(13).MinimumLength(13);
             RuleFor(u => u.VendorBarcode).MaximumLength(13).MinimumLength(13);
         }
     }
 
-    public class UpdateUniformCommandHandler : AsyncRequestHandler<UpdateUniformCommand>
+    public class UpdateUniformCommandHandler : IRequestHandler<UpdateUniformCommand, Uniform>
     {
         private readonly UniformManagementContext _dbContext;
         private readonly ILogger<UpdateUniformCommandHandler> _logger;
 
         public UpdateUniformCommandHandler(
-            ILogger<UpdateUniformCommandHandler> logger,
-            UniformManagementContext dbContext)
+        ILogger<UpdateUniformCommandHandler> logger,
+        UniformManagementContext dbContext)
 
         {
             _dbContext = dbContext;
             _logger = logger;
         }
 
-        protected override async Task Handle(UpdateUniformCommand request, CancellationToken cancellationToken)
+        public async Task<Uniform> Handle(UpdateUniformCommand request, CancellationToken cancellationToken)
         {
+            _logger.LogDebug("Updating Uniform");
             var uniform = _dbContext.Uniforms.FirstOrDefault(u => u.UniformId == request.UniformId);
 
             uniform.Description = request.Description;
@@ -68,7 +70,10 @@ namespace PncUniform.Shopping.UniformInventory.Application.Uniforms.Commands
 
             _dbContext.Uniforms.Update(uniform);
             await _dbContext.SaveChangesAsync();
+
             _logger.LogDebug("Updated Unifrom");
+
+            return uniform;
         }
     }
 }
