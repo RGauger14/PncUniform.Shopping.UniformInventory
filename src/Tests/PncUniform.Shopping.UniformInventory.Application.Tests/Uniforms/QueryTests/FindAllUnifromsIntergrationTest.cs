@@ -21,12 +21,9 @@ namespace PncUniform.Shopping.UniformInventory.Application.Tests.Uniforms.QueryT
             var uniformsToFind = await CreateUniformsToFindForTestAsync(client, numberOfUniforms: 2);
 
             // Act
-            // Then find all
             var response = await client.GetAsync("api/uniform/findAll");
 
             // Assert
-            // Then make sure each one is there
-
             var responseContent = await response.Content.ReadAsStringAsync();
             var uniforms = JsonConvert.DeserializeObject<IEnumerable<Uniform>>(responseContent);
             Assert.Equal(uniformsToFind.Count(), uniforms.Count());
@@ -48,18 +45,6 @@ namespace PncUniform.Shopping.UniformInventory.Application.Tests.Uniforms.QueryT
                 Assert.Equal(expectedUniform.VendorBarcode, actualUniform.VendorBarcode);
             }
         }
-
-        /* [Fact]
-         public async Task CanSucsessfullyReturnValidationError_WhenGivenInvalidData()
-         {
-             // arrange (set up test)
-
-             // Act (calling item test)
-
-             // Assert (ensure corrent response)
-             // assert error message
-             // assert http status code response (bad request)
-         }*/
 
         private async Task<IEnumerable<Uniform>> CreateUniformsToFindForTestAsync(HttpClient client, int numberOfUniforms)
         {
