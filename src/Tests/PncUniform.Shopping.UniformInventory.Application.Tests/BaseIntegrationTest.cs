@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using AutoFixture;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using PncUniform.Shopping.UniformInventory.API;
 using Respawn;
-using AutoFixture;
 using Xunit;
 
 namespace PncUniform.Shopping.UniformInventory.Application.Tests
@@ -30,7 +30,6 @@ namespace PncUniform.Shopping.UniformInventory.Application.Tests
 
         protected void ConfigureTestHost()
         {
-            
             var webHostBuilder = new WebHostBuilder()
                 .ConfigureAppConfiguration(config =>
                 {
@@ -62,7 +61,6 @@ namespace PncUniform.Shopping.UniformInventory.Application.Tests
         {
             _checkpoint = new Checkpoint();
         }
-
 
         private Task RestoreDatabaseCheckpointAsync()
         {
