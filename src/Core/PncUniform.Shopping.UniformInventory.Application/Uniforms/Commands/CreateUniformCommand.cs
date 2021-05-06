@@ -30,8 +30,8 @@ namespace PncUniform.Shopping.UniformInventory.Application.Uniforms.Commands
         public CreateUnifromCommandValidator(UniformManagementContext dbContext)
         {
             RuleFor(u => u.Size).NotEmpty().MaximumLength(15).NotNull();
-            RuleFor(u => u.Price).NotEmpty().NotNull();
-            RuleFor(u => u.StockLevel).NotEmpty().NotNull();
+            RuleFor(u => u.Price).GreaterThan(0);
+            RuleFor(u => u.StockLevel).GreaterThanOrEqualTo(0);
             RuleFor(u => u.Campus).NotEmpty().NotNull();
             RuleFor(u => u.Barcode).MaximumLength(13).MinimumLength(13);
             RuleFor(u => u.VendorBarcode).MaximumLength(13).MinimumLength(13);
