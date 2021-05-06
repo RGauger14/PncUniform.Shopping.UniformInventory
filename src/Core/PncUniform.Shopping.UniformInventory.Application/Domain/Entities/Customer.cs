@@ -22,6 +22,5 @@ namespace PncUniform.Shopping.UniformInventory.Application.Domain.Entities
         [Phone]
         [Column("CustomerMobile")]
         public string MobileNumber { get; set; }
-
     }
 }
